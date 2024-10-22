@@ -8,22 +8,22 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'npm test || echo "No tests found"'
+                bat 'npm test || echo "No tests found"'
             }
         }
         stage('Build Application') {
             steps {
-                sh 'npm run build || echo "No build step defined"'
+                bat 'npm run build || echo "No build step defined"'
             }
         }
         stage('Deploy Application') {
             steps {
-                sh 'nohup npm start &'
+                bat 'nohup npm start &'
             }
         }
     }
